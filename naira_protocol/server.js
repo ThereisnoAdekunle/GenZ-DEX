@@ -64,7 +64,7 @@ function renderIndex() {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Naira Token Protocol</title>
+  <title>GenZ</title>
   <style>
     :root {
       color-scheme: dark;
@@ -514,8 +514,8 @@ function renderIndex() {
       <div class="brand">
         <div class="brand-mark">↯</div>
         <div>
-          NairaSwap
-          <small>Protocol</small>
+          GenZ
+          <small>DEX</small>
         </div>
       </div>
       <div class="status"><span class="dot"></span><span id="status">Rates live</span></div>
@@ -852,7 +852,7 @@ function main() {
   const port = Number(process.env.PORT || 8000);
   const server = createServer();
   server.listen(port, '127.0.0.1', () => {
-    process.stdout.write(`Naira protocol listening on http://127.0.0.1:${port}\n`);
+    process.stdout.write(`GenZ listening on http://127.0.0.1:${port}\n`);
   });
 }
 
