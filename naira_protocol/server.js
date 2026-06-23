@@ -1,6 +1,7 @@
 const http = require('node:http');
 const { ProtocolConfig, ProtocolEngine, TokenDefinition, Treasury } = require('./engine');
 const { renderArchitecturePage } = require('./architecture');
+const { renderLandingPage } = require('./landing');
 
 function createDefaultEngine() {
   return new ProtocolEngine(
@@ -817,7 +818,7 @@ function createRequestListener(engine = createDefaultEngine()) {
     try {
       if (req.method === 'GET' && req.url === '/') {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end(renderIndex());
+        res.end(renderLandingPage());
         return;
       }
 
