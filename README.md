@@ -1,4 +1,4 @@
-# Naira Token Protocol MVP
+# GenZ
 
 This workspace contains a small protocol engine for selling tokens in naira without forcing every trade through an on-chain swap.
 
