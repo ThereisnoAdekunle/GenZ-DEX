@@ -5,6 +5,7 @@ function renderLandingPage() {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GenZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: dark;
@@ -24,11 +25,11 @@ function renderLandingPage() {
     html, body { min-height: 100%; }
     body {
       margin: 0;
-      background: #0c0e14;
+      background: var(--bg);
       color: var(--text);
       font-family: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
       padding: 2rem 1rem 3rem;
-      line-height: 1.6;
+      line-height: 1.55;
       font-size: 13px;
     }
     .page {
@@ -40,7 +41,7 @@ function renderLandingPage() {
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin: 0 0 2rem;
+      margin: 0 0 1.5rem;
       border-bottom: 0.5px solid var(--border);
       padding-bottom: 10px;
       font-weight: 400;
@@ -64,7 +65,7 @@ function renderLandingPage() {
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .brand {
       display: inline-flex;
@@ -79,10 +80,9 @@ function renderLandingPage() {
       height: 34px;
       display: grid;
       place-items: center;
-      border-radius: 8px;
+      border-radius: 6px;
       background: linear-gradient(135deg, rgba(240, 168, 50, 0.95), rgba(96, 170, 255, 0.9));
       color: #171311;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
     }
     .brand small {
       display: block;
@@ -99,19 +99,19 @@ function renderLandingPage() {
       flex-wrap: wrap;
       justify-content: flex-end;
     }
-    .pill {
+    .status {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 11px;
-      border-radius: 999px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       background: var(--soft);
-      color: var(--text);
+      color: var(--muted);
       text-decoration: none;
       font-weight: 700;
     }
-    .pill .dot {
+    .status .dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
@@ -121,7 +121,7 @@ function renderLandingPage() {
     .tabbar {
       display: flex;
       gap: 0;
-      margin-bottom: 0;
+      margin-bottom: 0.75rem;
       border-bottom: 0.5px solid var(--border);
       flex-wrap: wrap;
     }
@@ -154,37 +154,37 @@ function renderLandingPage() {
     .hero {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 12px;
-      margin-bottom: 1rem;
+      gap: 8px;
+      margin-bottom: 0.75rem;
     }
     .card {
       background: var(--panel);
       border: 0.5px solid var(--border);
-      border-radius: 8px;
-      padding: 14px;
+      border-radius: 6px;
+      padding: 12px;
     }
     .lede {
       margin: 0;
       max-width: 76ch;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
     .metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-top: 1rem;
+      gap: 6px;
+      margin-top: 0.75rem;
     }
     .metric {
       text-align: center;
-      padding: 12px;
+      padding: 10px;
       border: 0.5px solid var(--border);
       background: #131620;
     }
     .metric .num {
       font-size: 24px;
       font-weight: 500;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       color: #e8eaf4;
     }
     .metric .lbl {
@@ -206,7 +206,7 @@ function renderLandingPage() {
     .flow-node {
       flex: 1;
       border: 0.5px solid var(--border);
-      padding: 12px 14px;
+      padding: 10px 12px;
       background: #131620;
     }
     .flow-node.highlight { border-color: var(--accent); }
@@ -228,7 +228,7 @@ function renderLandingPage() {
     .node-desc {
       font-size: 11px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
     .node-tag {
       display: inline-block;
@@ -261,15 +261,15 @@ function renderLandingPage() {
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
-      gap: 16px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 12px;
     }
     .section-title {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
     .section-title span {
       color: var(--muted);
@@ -282,8 +282,8 @@ function renderLandingPage() {
       margin: 8px 0 14px;
     }
     .token, .chip {
-      padding: 8px 12px;
-      border-radius: 8px;
+      padding: 7px 11px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       background: var(--soft);
       color: var(--text);
@@ -307,14 +307,14 @@ function renderLandingPage() {
     .input-row {
       display: grid;
       grid-template-columns: 88px 1fr;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
     }
     .prefix {
       display: grid;
       place-items: center;
       height: 100%;
-      border-radius: 8px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       background: var(--soft);
       color: #5a6080;
@@ -322,8 +322,8 @@ function renderLandingPage() {
     }
     input, select, button {
       width: 100%;
-      padding: 12px 14px;
-      border-radius: 8px;
+      padding: 11px 13px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       background: #0d1017;
       color: var(--text);
@@ -338,8 +338,8 @@ function renderLandingPage() {
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: center;
-      padding-top: 12px;
-      margin-top: 12px;
+      padding-top: 10px;
+      margin-top: 10px;
       border-top: 0.5px solid var(--border);
     }
     .swap strong {
@@ -351,7 +351,7 @@ function renderLandingPage() {
       height: 30px;
       display: grid;
       place-items: center;
-      border-radius: 999px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       background: var(--soft);
     }
@@ -359,13 +359,13 @@ function renderLandingPage() {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 12px 0;
+      margin: 10px 0;
     }
     .chip { color: var(--muted); }
     .controls {
       display: flex;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 12px;
     }
     .controls button {
       font-weight: 800;
@@ -382,14 +382,14 @@ function renderLandingPage() {
     }
     .mini-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 12px;
     }
     .mini {
       border: 0.5px solid var(--border);
       background: #131620;
-      padding: 12px;
+      padding: 10px;
       text-align: center;
     }
     .mini .label {
@@ -406,7 +406,7 @@ function renderLandingPage() {
     }
     .summary {
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
     .summary-row {
       display: flex;
@@ -420,8 +420,8 @@ function renderLandingPage() {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-top: 12px;
-      margin-top: 12px;
+      padding-top: 10px;
+      margin-top: 10px;
       border-top: 0.5px solid var(--border);
       font-size: 18px;
       font-weight: 800;
@@ -432,9 +432,9 @@ function renderLandingPage() {
     }
     pre {
       margin: 0;
-      padding: 16px;
+      padding: 14px;
       background: var(--panel-2);
-      border-radius: 8px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       color: #f0e9dd;
       overflow: auto;
@@ -447,7 +447,7 @@ function renderLandingPage() {
       align-items: center;
       gap: 8px;
       padding: 8px 11px;
-      border-radius: 999px;
+      border-radius: 6px;
       border: 0.5px solid var(--border);
       background: var(--soft);
       color: var(--muted);
@@ -463,10 +463,11 @@ function renderLandingPage() {
     }
     .muted { color: var(--muted); }
     @media (max-width: 980px) {
-      .hero, .layout, .metrics, .mini-grid { grid-template-columns: 1fr; }
+      .hero, .layout { grid-template-columns: 1fr; }
       .topbar { grid-template-columns: 1fr; }
       .nav { justify-content: flex-start; }
       .controls { flex-direction: column; }
+      .metrics, .mini-grid { grid-template-columns: 1fr; }
       .page { width: min(100vw - 20px, 1320px); }
     }
   </style>
@@ -623,7 +624,7 @@ function renderLandingPage() {
             <div class="summary-row"><span>Protocol fee</span><strong id="sum-fee">₦30</strong></div>
             <div class="summary-total"><span>Total charged</span><span id="sum-total">₦2,530</span></div>
           </div>
-          <div class="mini-grid" style="margin-top:16px;">
+          <div class="mini-grid" style="margin-top:12px;">
             <div class="mini"><div class="label">Quote state</div><div class="value" id="summary-state">Loaded</div></div>
             <div class="mini"><div class="label">Destination</div><div class="value">Wallet</div></div>
             <div class="mini"><div class="label">Route</div><div class="value">Desk</div></div>
