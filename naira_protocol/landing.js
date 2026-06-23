@@ -5,7 +5,7 @@ function renderLandingPage() {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GenZ</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: dark;
@@ -28,12 +28,12 @@ function renderLandingPage() {
       background: var(--bg);
       color: var(--text);
       font-family: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-      padding: 2rem 1rem 3rem;
-      line-height: 1.55;
+      padding: 1.75rem 0.75rem 2.5rem;
+      line-height: 1.5;
       font-size: 13px;
     }
     .page {
-      width: min(1320px, calc(100vw - 24px));
+      width: min(1320px, calc(100vw - 18px));
       margin: 0 auto;
     }
     h1 {
@@ -153,32 +153,32 @@ function renderLandingPage() {
     }
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 6px;
-      margin-bottom: 0.5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5px;
+      margin-bottom: 0.45rem;
     }
     .card {
       background: var(--panel);
       border: 0.5px solid var(--border);
       border-radius: 6px;
-      padding: 10px;
+      padding: 9px;
     }
     .lede {
       margin: 0;
       max-width: 68ch;
       color: var(--muted);
-      line-height: 1.42;
-      font-size: 14px;
+      line-height: 1.4;
+      font-size: 13px;
     }
     .metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-      margin-top: 0.6rem;
+      gap: 3px;
+      margin-top: 0.55rem;
     }
     .metric {
       text-align: center;
-      padding: 9px;
+      padding: 8px;
       border: 0.5px solid var(--border);
       background: #131620;
     }
@@ -207,7 +207,7 @@ function renderLandingPage() {
     .flow-node {
       flex: 1;
       border: 0.5px solid var(--border);
-      padding: 10px 12px;
+      padding: 9px 11px;
       background: #131620;
     }
     .flow-node.highlight { border-color: var(--accent); }
@@ -261,9 +261,9 @@ function renderLandingPage() {
     }
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
-      gap: 10px;
-      margin-top: 10px;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+      gap: 8px;
+      margin-top: 8px;
     }
     .section-title {
       display: flex;
@@ -280,7 +280,7 @@ function renderLandingPage() {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 6px 0 12px;
+      margin: 5px 0 10px;
     }
     .token, .chip {
       padding: 7px 11px;
@@ -339,8 +339,8 @@ function renderLandingPage() {
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: center;
-      padding-top: 8px;
-      margin-top: 8px;
+      padding-top: 7px;
+      margin-top: 7px;
       border-top: 0.5px solid var(--border);
     }
     .swap strong {
@@ -360,13 +360,13 @@ function renderLandingPage() {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 8px 0;
+      margin: 7px 0;
     }
     .chip { color: var(--muted); }
     .controls {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
     .controls button {
       font-weight: 800;
@@ -384,13 +384,13 @@ function renderLandingPage() {
     .mini-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      margin-top: 10px;
+      gap: 3px;
+      margin-top: 8px;
     }
     .mini {
       border: 0.5px solid var(--border);
       background: #131620;
-      padding: 9px;
+      padding: 8px;
       text-align: center;
     }
     .mini .label {
@@ -407,7 +407,7 @@ function renderLandingPage() {
     }
     .summary {
       display: grid;
-      gap: 6px;
+      gap: 5px;
     }
     .summary-row {
       display: flex;
@@ -421,8 +421,8 @@ function renderLandingPage() {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-top: 10px;
-      margin-top: 8px;
+      padding-top: 8px;
+      margin-top: 7px;
       border-top: 0.5px solid var(--border);
       font-size: 18px;
       font-weight: 800;
@@ -433,7 +433,7 @@ function renderLandingPage() {
     }
     pre {
       margin: 0;
-      padding: 12px;
+      padding: 11px;
       background: var(--panel-2);
       border-radius: 6px;
       border: 0.5px solid var(--border);
