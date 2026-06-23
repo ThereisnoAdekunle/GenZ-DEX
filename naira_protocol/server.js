@@ -795,7 +795,11 @@ function renderIndex() {
 }
 
 function createServer(engine = createDefaultEngine()) {
-  return http.createServer(async (req, res) => {
+  return http.createServer(createRequestListener(engine));
+}
+
+function createRequestListener(engine = createDefaultEngine()) {
+  return async (req, res) => {
     try {
       if (req.method === 'GET' && req.url === '/') {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
@@ -841,7 +845,7 @@ function createServer(engine = createDefaultEngine()) {
     } catch (error) {
       sendJson(res, 400, { error: error.message });
     }
-  });
+  };
 }
 
 function main() {
@@ -858,6 +862,7 @@ if (require.main === module) {
 
 module.exports = {
   createServer,
+  createRequestListener,
   createDefaultEngine,
   main,
 };
