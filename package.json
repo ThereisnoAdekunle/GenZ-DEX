@@ -1,0 +1,10 @@
+{
+  "name": "naira-protocol-mvp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test",
+    "start": "node naira_protocol/server.js"
+  }
+}
