@@ -1,5 +1,6 @@
 const http = require('node:http');
 const { ProtocolConfig, ProtocolEngine, TokenDefinition, Treasury } = require('./engine');
+const { renderArchitecturePage } = require('./architecture');
 
 function createDefaultEngine() {
   return new ProtocolEngine(
@@ -121,6 +122,13 @@ function renderIndex() {
       gap: 16px;
       margin-bottom: 18px;
     }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
     .brand {
       display: inline-flex;
       align-items: center;
@@ -160,6 +168,9 @@ function renderIndex() {
       color: var(--muted);
       font-size: 13px;
       font-weight: 600;
+    }
+    .status-link {
+      text-decoration: none;
     }
     .status .dot {
       width: 8px;
@@ -518,7 +529,10 @@ function renderIndex() {
           <small>DEX</small>
         </div>
       </div>
-      <div class="status"><span class="dot"></span><span id="status">Rates live</span></div>
+      <div class="topbar-actions">
+        <div class="status"><span class="dot"></span><span id="status">Rates live</span></div>
+        <a class="status status-link" href="/architecture">Architecture</a>
+      </div>
     </section>
 
     <section class="rates" aria-label="Live rates">
@@ -804,6 +818,12 @@ function createRequestListener(engine = createDefaultEngine()) {
       if (req.method === 'GET' && req.url === '/') {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(renderIndex());
+        return;
+      }
+
+      if (req.method === 'GET' && req.url === '/architecture') {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(renderArchitecturePage());
         return;
       }
 
