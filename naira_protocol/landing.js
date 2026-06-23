@@ -65,7 +65,7 @@ function renderLandingPage() {
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
     .brand {
       display: inline-flex;
@@ -121,12 +121,12 @@ function renderLandingPage() {
     .tabbar {
       display: flex;
       gap: 0;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       border-bottom: 0.5px solid var(--border);
       flex-wrap: wrap;
     }
     .tab {
-      padding: 8px 16px;
+      padding: 7px 14px;
       font-size: 10px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -154,30 +154,31 @@ function renderLandingPage() {
     .hero {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 8px;
-      margin-bottom: 0.75rem;
+      gap: 6px;
+      margin-bottom: 0.5rem;
     }
     .card {
       background: var(--panel);
       border: 0.5px solid var(--border);
       border-radius: 6px;
-      padding: 12px;
+      padding: 10px;
     }
     .lede {
       margin: 0;
-      max-width: 76ch;
+      max-width: 68ch;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.42;
+      font-size: 14px;
     }
     .metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin-top: 0.75rem;
+      gap: 4px;
+      margin-top: 0.6rem;
     }
     .metric {
       text-align: center;
-      padding: 10px;
+      padding: 9px;
       border: 0.5px solid var(--border);
       background: #131620;
     }
@@ -261,15 +262,15 @@ function renderLandingPage() {
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
-      gap: 12px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-top: 10px;
     }
     .section-title {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
-      margin: 0 0 8px;
+      margin: 0 0 6px;
     }
     .section-title span {
       color: var(--muted);
@@ -279,7 +280,7 @@ function renderLandingPage() {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 8px 0 14px;
+      margin: 6px 0 12px;
     }
     .token, .chip {
       padding: 7px 11px;
@@ -338,8 +339,8 @@ function renderLandingPage() {
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: center;
-      padding-top: 10px;
-      margin-top: 10px;
+      padding-top: 8px;
+      margin-top: 8px;
       border-top: 0.5px solid var(--border);
     }
     .swap strong {
@@ -359,13 +360,13 @@ function renderLandingPage() {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 10px 0;
+      margin: 8px 0;
     }
     .chip { color: var(--muted); }
     .controls {
       display: flex;
       gap: 10px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .controls button {
       font-weight: 800;
@@ -383,13 +384,13 @@ function renderLandingPage() {
     .mini-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      margin-top: 12px;
+      gap: 4px;
+      margin-top: 10px;
     }
     .mini {
       border: 0.5px solid var(--border);
       background: #131620;
-      padding: 10px;
+      padding: 9px;
       text-align: center;
     }
     .mini .label {
@@ -406,7 +407,7 @@ function renderLandingPage() {
     }
     .summary {
       display: grid;
-      gap: 8px;
+      gap: 6px;
     }
     .summary-row {
       display: flex;
@@ -421,7 +422,7 @@ function renderLandingPage() {
       justify-content: space-between;
       align-items: baseline;
       padding-top: 10px;
-      margin-top: 10px;
+      margin-top: 8px;
       border-top: 0.5px solid var(--border);
       font-size: 18px;
       font-weight: 800;
@@ -432,7 +433,7 @@ function renderLandingPage() {
     }
     pre {
       margin: 0;
-      padding: 14px;
+      padding: 12px;
       background: var(--panel-2);
       border-radius: 6px;
       border: 0.5px solid var(--border);
