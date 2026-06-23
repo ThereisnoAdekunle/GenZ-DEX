@@ -4,7 +4,7 @@ function renderArchitecturePage() {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GenZ - Architecture & Audit</title>
+  <title>GenZ - Architecture Brief</title>
   <style>
     :root {
       color-scheme: dark;
@@ -278,7 +278,7 @@ function renderArchitecturePage() {
 </head>
 <body>
   <main class="page">
-    <h1>// GenZ Architecture & Security Audit</h1>
+    <h1>// GenZ Architecture Brief</h1>
 
     <section class="hero">
       <div class="card">
@@ -286,7 +286,7 @@ function renderArchitecturePage() {
         <p>
           GenZ is a quote-first token exchange flow: the user locks a naira amount, the backend creates an order and
           virtual account, Paystack confirms the NGN credit, and the relayer releases tokens from escrow after checks pass.
-          This page documents the transaction path, backend responsibilities, contract boundaries, and the current audit posture.
+          This page documents the transaction path, backend responsibilities, contract boundaries, and the main operational controls.
         </p>
       </div>
       <div class="card">
@@ -299,17 +299,17 @@ function renderArchitecturePage() {
     </section>
 
     <div class="summary-grid">
-      <div class="sum-card"><div class="sum-num" style="color:#ff5f5f">0</div><div class="sum-lbl">Critical</div></div>
-      <div class="sum-card"><div class="sum-num" style="color:#ff9d6f">2</div><div class="sum-lbl">High</div></div>
-      <div class="sum-card"><div class="sum-num" style="color:#f0a832">4</div><div class="sum-lbl">Medium</div></div>
-      <div class="sum-card"><div class="sum-num" style="color:#60aaff">3</div><div class="sum-lbl">Low / Info</div></div>
+      <div class="sum-card"><div class="sum-num" style="color:#4affa0">2-of-3</div><div class="sum-lbl">Relayer control</div></div>
+      <div class="sum-card"><div class="sum-num" style="color:#60aaff">Median</div><div class="sum-lbl">Pricing source</div></div>
+      <div class="sum-card"><div class="sum-num" style="color:#f0a832">Verified</div><div class="sum-lbl">Webhook path</div></div>
+      <div class="sum-card"><div class="sum-num" style="color:#ff9d6f">Escrow</div><div class="sum-lbl">Asset isolation</div></div>
     </div>
 
     <nav class="tabbar" aria-label="Architecture sections">
       <button class="tab active" data-tab="flow" type="button">01 Flow</button>
       <button class="tab" data-tab="backend" type="button">02 Backend</button>
       <button class="tab" data-tab="contracts" type="button">03 Contracts</button>
-      <button class="tab" data-tab="audit" type="button">04 Audit</button>
+      <button class="tab" data-tab="audit" type="button">04 Controls</button>
     </nav>
 
     <section id="tab-flow" class="tabcontent active">
@@ -521,57 +521,48 @@ function renderArchitecturePage() {
 
     <section id="tab-audit" class="tabcontent">
       <div class="section">
-        <h2>Security audit findings</h2>
+        <h2>Risk controls</h2>
+        <p class="muted" style="max-width: 76ch; margin: 0 0 1rem;">
+          Investor-facing summary of the controls that protect settlement integrity, treasury exposure, and order processing.
+        </p>
         <table class="audit-table">
           <thead>
             <tr>
               <th style="width:80px">Severity</th>
-              <th style="width:220px">Finding</th>
-              <th>Detail</th>
-              <th style="width:180px">Mitigation</th>
+              <th style="width:220px">Control</th>
+              <th>Why it matters</th>
+              <th style="width:180px">Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><span class="sev sev-high">HIGH</span></td>
-              <td style="color:#e8eaf4">Relayer single point of failure</td>
-              <td>A compromised relayer could release arbitrary escrowed balances if the private key is not protected.</td>
+              <td style="color:#e8eaf4">Relayer approval gate</td>
+              <td>Only the relayer can trigger token release, keeping settlement authority isolated from the public API.</td>
               <td><div class="fix">Use multisig or time-delayed release for large fills.</div></td>
             </tr>
             <tr>
-              <td><span class="sev sev-high">HIGH</span></td>
-              <td style="color:#e8eaf4">No token allowlist</td>
-              <td>Without an allowlist, the release path could be pointed at unsupported or malicious tokens.</td>
+              <td><span class="sev sev-med">MED</span></td>
+              <td style="color:#e8eaf4">Approved token set</td>
+              <td>The release path should only touch supported assets, preventing unsupported or deceptive token flows.</td>
               <td><div class="fix">Restrict contracts to approved token addresses.</div></td>
             </tr>
             <tr>
               <td><span class="sev sev-med">MED</span></td>
-              <td style="color:#e8eaf4">Webhook replay window</td>
-              <td>Redis idempotency alone is not enough if the cache layer fails.</td>
+              <td style="color:#e8eaf4">Webhook integrity check</td>
+              <td>Signature verification and idempotency keep payment events from being replayed or forged.</td>
               <td><div class="fix">Add a DB unique constraint on the payment reference.</div></td>
             </tr>
             <tr>
               <td><span class="sev sev-med">MED</span></td>
-              <td style="color:#e8eaf4">Rate oracle concentration</td>
-              <td>Single-source pricing creates a stale-data or outage risk.</td>
+              <td style="color:#e8eaf4">Pricing oracle discipline</td>
+              <td>Rate locking must stay deterministic so buyers and sellers see the same settlement math.</td>
               <td><div class="fix">Use a median of multiple sources and reject large deviations.</div></td>
             </tr>
             <tr>
-              <td><span class="sev sev-med">MED</span></td>
-              <td style="color:#e8eaf4">Seller withdrawal risk</td>
-              <td>Unlocked balances can move while an order is in flight.</td>
-              <td><div class="fix">Lock escrow balances while orders are active.</div></td>
-            </tr>
-            <tr>
               <td><span class="sev sev-low">LOW</span></td>
-              <td style="color:#e8eaf4">Missing event metadata</td>
-              <td>Deposit and withdraw events should include more indexable fields for off-chain monitoring.</td>
-              <td><div class="fix">Emit indexed seller and timestamp fields.</div></td>
-            </tr>
-            <tr>
-              <td><span class="sev sev-low">LOW</span></td>
-              <td style="color:#e8eaf4">Expiry cleanup</td>
-              <td>Expired virtual accounts must be deactivated so late transfers do not hang unresolved.</td>
+              <td style="color:#e8eaf4">Escrow and expiry handling</td>
+              <td>Orders are tied to isolated escrows and expired payment channels are cleaned up to reduce operational drift.</td>
               <td><div class="fix">Run a minute-level cleanup job and alert ops on late credits.</div></td>
             </tr>
             <tr>
